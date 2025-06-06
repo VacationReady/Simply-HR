@@ -26,9 +26,17 @@ export default function Login() {
   };
 
   return (
-    <div className="min-h-screen flex flex-col justify-center items-center bg-gray-100 px-4">
-      <div className="bg-white p-8 rounded shadow-md w-full max-w-sm">
-        <h1 className="text-2xl font-bold mb-6 text-center">SimplyHR Login</h1>
+    <div className="fixed inset-0 flex items-center justify-center bg-gray-100 px-4">
+      <div className="w-full max-w-sm bg-white p-8 rounded shadow-md">
+        {/* 🔖 Placeholder Logo + Branding */}
+        <div className="mb-6 text-center">
+          <img
+            src="https://placehold.co/120x40?text=SimplyHR"
+            alt="SimplyHR Logo"
+            className="mx-auto mb-2"
+          />
+          <h1 className="text-2xl font-bold">Login</h1>
+        </div>
 
         <form onSubmit={handleLogin} className="space-y-4 w-full">
           <div>
