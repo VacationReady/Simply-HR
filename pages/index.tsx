@@ -26,16 +26,17 @@ export default function Login() {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-100">
-      <div className="bg-white p-8 rounded shadow-md w-full max-w-md">
-        <div className="flex flex-col items-center mb-6">
+    <div className="fixed inset-0 flex items-center justify-center bg-gray-100 p-4">
+      <div className="w-full max-w-sm bg-white p-6 rounded-lg shadow-lg">
+        <div className="text-center mb-6">
           <img
             src="https://placehold.co/200x50?text=SimplyHR"
             alt="SimplyHR Logo"
-            className="mb-4"
+            className="mx-auto mb-2"
           />
           <h1 className="text-2xl font-bold">Login</h1>
         </div>
+
         <form onSubmit={handleLogin} className="space-y-4">
           <div>
             <label className="block text-sm font-medium text-gray-700">Username</label>
@@ -47,6 +48,7 @@ export default function Login() {
               required
             />
           </div>
+
           <div>
             <label className="block text-sm font-medium text-gray-700">Password</label>
             <input
@@ -57,7 +59,9 @@ export default function Login() {
               required
             />
           </div>
-          {error && <p className="text-red-500 text-sm">{error}</p>}
+
+          {error && <p className="text-sm text-red-500">{error}</p>}
+
           <button
             type="submit"
             className="w-full bg-blue-600 text-white py-2 rounded hover:bg-blue-700 transition"
