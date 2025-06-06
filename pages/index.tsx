@@ -27,7 +27,7 @@ export default function Login() {
 
   return (
     <main className="flex items-center justify-center min-h-screen bg-gray-100">
-      <div className="bg-white p-8 rounded shadow-md w-full max-w-sm">
+      <div className="bg-white p-8 rounded shadow-md max-w-sm w-[90%] mx-auto">
         <img
           src="https://placehold.co/200x50?text=SimplyHR"
           alt="SimplyHR"
