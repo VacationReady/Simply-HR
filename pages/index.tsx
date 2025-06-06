@@ -26,23 +26,13 @@ export default function Login() {
   };
 
   return (
-    <div className="fixed inset-0 flex items-center justify-center bg-gray-100 px-4">
-      <div className="w-full max-w-sm bg-white p-8 rounded shadow-md">
-        {/* 🔖 Placeholder Logo + Branding */}
-        <div className="mb-6 text-center">
-          <img
-            src="https://placehold.co/120x40?text=SimplyHR"
-            alt="SimplyHR Logo"
-            className="mx-auto mb-2"
-          />
-          <h1 className="text-2xl font-bold">Login</h1>
-        </div>
+    <main className="flex items-center justify-center min-h-screen bg-gray-100">
+      <div className="w-full max-w-sm bg-white p-8 rounded shadow">
+        <h1 className="text-2xl font-bold text-center mb-6">SimplyHR Login</h1>
 
-        <form onSubmit={handleLogin} className="space-y-4 w-full">
+        <form onSubmit={handleLogin} className="space-y-4">
           <div>
-            <label className="block text-left text-sm font-medium text-gray-700">
-              Username
-            </label>
+            <label className="block text-sm font-medium text-gray-700">Username</label>
             <input
               type="text"
               value={username}
@@ -53,9 +43,7 @@ export default function Login() {
           </div>
 
           <div>
-            <label className="block text-left text-sm font-medium text-gray-700">
-              Password
-            </label>
+            <label className="block text-sm font-medium text-gray-700">Password</label>
             <input
               type="password"
               value={password}
@@ -75,6 +63,6 @@ export default function Login() {
           </button>
         </form>
       </div>
-    </div>
+    </main>
   );
 }
