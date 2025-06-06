@@ -6,27 +6,35 @@ export default NextAuth({
     CredentialsProvider({
       name: "Credentials",
       credentials: {
-        email: { label: "Email", type: "text" },
+        username: { label: "Username", type: "text" },
         password: { label: "Password", type: "password" },
       },
-      async authorize(credentials) {
-        const users = [
-          { id: 1, email: "employee@simplyhr.com", password: "password123" },
-        ];
-        const user = users.find(
-          (u) =>
-            u.email === credentials.email &&
-            u.password === credentials.password
-        );
-        return user || null;
+      authorize(credentials) {
+        // Replace with real logic later
+        if (
+          credentials.username === "admin" &&
+          credentials.password === "admin"
+        ) {
+          return { id: 1, name: "Admin User", email: "admin@simplyhr.dev" };
+        }
+        return null;
       },
     }),
   ],
   pages: {
-    signIn: "/login",
+    signIn: "/", // Redirects to root for login UI
   },
   session: {
     strategy: "jwt",
   },
-  secret: process.env.NEXTAUTH_SECRET || "simplyhr-secret",
+  callbacks: {
+    async jwt({ token, user }) {
+      if (user) token.user = user;
+      return token;
+    },
+    async session({ session, token }) {
+      session.user = token.user;
+      return session;
+    },
+  },
 });
