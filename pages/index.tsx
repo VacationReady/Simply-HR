@@ -26,13 +26,13 @@ export default function Login() {
   };
 
   return (
-    <div className="h-screen flex items-center justify-center bg-gray-100 px-4">
-      <div className="bg-white p-8 rounded shadow-md w-full max-w-sm mx-auto">
+    <div className="h-screen w-screen flex flex-col items-center justify-center bg-gray-100 text-left direction-ltr">
+      <div className="bg-white p-8 rounded shadow-md w-full max-w-sm">
         <h1 className="text-2xl font-bold mb-6 text-center">SimplyHR Login</h1>
 
         <form onSubmit={handleLogin} className="space-y-4">
           <div>
-            <label className="block text-left text-sm font-medium text-gray-700">
+            <label className="block text-sm font-medium text-gray-700">
               Username
             </label>
             <input
@@ -45,7 +45,7 @@ export default function Login() {
           </div>
 
           <div>
-            <label className="block text-left text-sm font-medium text-gray-700">
+            <label className="block text-sm font-medium text-gray-700">
               Password
             </label>
             <input
