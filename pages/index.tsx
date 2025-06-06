@@ -1,24 +1,60 @@
+import { useState } from "react";
 import { signIn } from "next-auth/react";
+import { useRouter } from "next/router";
 
 export default function Login() {
+  const router = useRouter();
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
+  const [error, setError] = useState("");
+
+  const handleLogin = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setError("");
+
+    const res = await signIn("credentials", {
+      redirect: false,
+      username,
+      password,
+    });
+
+    if (res?.ok) {
+      router.push("/dashboard");
+    } else {
+      setError("Invalid username or password");
+    }
+  };
+
   return (
     <div className="min-h-screen flex items-center justify-center bg-gray-100">
-      <div className="bg-white p-8 rounded shadow-md text-center">
-        <h1 className="text-2xl font-bold mb-4">Welcome to SimplyHR</h1>
-        <p className="mb-6">Login with your admin credentials</p>
-        <button
-          onClick={() =>
-            signIn("credentials", {
-              username: "admin",
-              password: "admin",
-              callbackUrl: "/dashboard",
-            })
-          }
-          className="bg-blue-600 text-white px-6 py-2 rounded hover:bg-blue-700"
-        >
-          Log in as Admin
-        </button>
-      </div>
-    </div>
-  );
-}
+      <div className="bg-white p-8 rounded shadow-md w-full max-w-sm">
+        <h1 className="text-2xl font-bold mb-6 text-center">SimplyHR Login</h1>
+
+        <form onSubmit={handleLogin} className="space-y-4">
+          <div>
+            <label className="block text-left text-sm font-medium text-gray-700">
+              Username
+            </label>
+            <input
+              type="text"
+              value={username}
+              onChange={(e) => setUsername(e.target.value)}
+              className="w-full px-4 py-2 border rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
+              required
+            />
+          </div>
+
+          <div>
+            <label className="block text-left text-sm font-medium text-gray-700">
+              Password
+            </label>
+            <input
+              type="password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              className="w-full px-4 py-2 border rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
+              required
+            />
+          </div>
+
+          {e
