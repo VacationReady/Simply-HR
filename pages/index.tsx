@@ -7,7 +7,13 @@ export default function Login() {
         <h1 className="text-2xl font-bold mb-4">Welcome to SimplyHR</h1>
         <p className="mb-6">Login with your admin credentials</p>
         <button
-          onClick={() => signIn("credentials", { callbackUrl: "/dashboard" })}
+          onClick={() =>
+            signIn("credentials", {
+              username: "admin",
+              password: "admin",
+              callbackUrl: "/dashboard",
+            })
+          }
           className="bg-blue-600 text-white px-6 py-2 rounded hover:bg-blue-700"
         >
           Log in as Admin
