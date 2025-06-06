@@ -27,22 +27,22 @@ export default function Login() {
 
   return (
     <main className="flex items-center justify-center min-h-screen bg-gray-100">
-      <div className="w-full max-w-sm bg-white p-8 rounded-lg shadow-lg text-center">
+      <div className="bg-white p-8 rounded shadow-md w-full max-w-sm">
         <img
           src="https://placehold.co/200x50?text=SimplyHR"
-          alt="SimplyHR Logo"
-          className="mx-auto mb-6"
+          alt="SimplyHR"
+          className="mx-auto mb-4"
         />
-        <h1 className="text-2xl font-bold mb-6">Login</h1>
+        <h1 className="text-xl font-bold text-center mb-4">Login</h1>
 
-        <form onSubmit={handleLogin} className="space-y-4 text-left">
+        <form onSubmit={handleLogin} className="space-y-4">
           <div>
             <label className="block text-sm font-medium text-gray-700">Username</label>
             <input
               type="text"
               value={username}
               onChange={(e) => setUsername(e.target.value)}
-              className="mt-1 w-full px-4 py-2 border rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="w-full px-3 py-2 border rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
               required
             />
           </div>
@@ -53,7 +53,7 @@ export default function Login() {
               type="password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
-              className="mt-1 w-full px-4 py-2 border rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="w-full px-3 py-2 border rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
               required
             />
           </div>

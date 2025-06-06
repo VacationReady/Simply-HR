@@ -2,7 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Force full height on all parents */
+/* Required to allow vertical centering */
 html,
 body,
 #__next {
