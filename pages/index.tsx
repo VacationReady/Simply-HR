@@ -26,14 +26,16 @@ export default function Login() {
   };
 
   return (
-    <main className="flex items-center justify-center min-h-screen bg-gray-100">
-      <div className="bg-white p-8 rounded shadow-md max-w-sm w-[90%] mx-auto">
-        <img
-          src="https://placehold.co/200x50?text=SimplyHR"
-          alt="SimplyHR"
-          className="mx-auto mb-4"
-        />
-        <h1 className="text-xl font-bold text-center mb-4">Login</h1>
+    <div className="fixed inset-0 flex items-center justify-center bg-gray-100">
+      <div className="bg-white p-8 rounded-lg shadow-lg w-[320px]">
+        <div className="text-center mb-6">
+          <img
+            src="https://placehold.co/200x50?text=SimplyHR"
+            alt="SimplyHR"
+            className="mx-auto mb-2"
+          />
+          <h1 className="text-2xl font-bold">Login</h1>
+        </div>
 
         <form onSubmit={handleLogin} className="space-y-4">
           <div>
@@ -42,7 +44,7 @@ export default function Login() {
               type="text"
               value={username}
               onChange={(e) => setUsername(e.target.value)}
-              className="w-full px-3 py-2 border rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="mt-1 w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
               required
             />
           </div>
@@ -53,7 +55,7 @@ export default function Login() {
               type="password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
-              className="w-full px-3 py-2 border rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="mt-1 w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
               required
             />
           </div>
@@ -68,6 +70,6 @@ export default function Login() {
           </button>
         </form>
       </div>
-    </main>
+    </div>
   );
 }
